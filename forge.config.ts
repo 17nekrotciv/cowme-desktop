@@ -13,13 +13,14 @@ import path from "node:path";
 // import { globSync } from "node:fs";
 
 const STRINGS = {
-  author: "Revolt Platforms LTD",
-  name: "Stoat",
-  execName: "stoat-desktop",
-  description: "Open source user-first chat platform.",
+  author: "CowMe",
+  name: "CowMe",
+  execName: "cowme-desktop",
+  description: "CowMe chat.",
 };
 
-const ASSET_DIR = "assets/desktop";
+// icones da vaquinha (gerados de brand/cow.svg no repo do servidor)
+const ASSET_DIR = "cowme";
 
 /**
  * Build targets for the desktop app
@@ -29,7 +30,7 @@ const makers: ForgeConfig["makers"] = [
     name: STRINGS.name,
     authors: STRINGS.author,
     // todo: hoist this
-    iconUrl: `https://stoat.chat/app/assets/icon-DUSNE-Pb.ico`,
+    iconUrl: `https://cowme.net.br/assets/web/icon.ico`,
     // todo: loadingGif
     setupIcon: `${ASSET_DIR}/icon.ico`,
     description: STRINGS.description,
@@ -100,6 +101,8 @@ const config: ForgeConfig = {
     asar: true,
     name: STRINGS.name,
     executableName: STRINGS.execName,
+    // sem isso a "empresa" nas propriedades do exe vem do author do package.json
+    win32metadata: { CompanyName: STRINGS.author },
     icon:
       process.platform === "darwin"
         ? `${ASSET_DIR}/icon.icon`

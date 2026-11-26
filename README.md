@@ -13,6 +13,19 @@ Application for Windows, macOS, and Linux.
 </div>
 <br/>
 
+> [!NOTE]
+> **CowMe para Desktop** — fork do [stoatchat/for-desktop](https://github.com/stoatchat/for-desktop) v1.5.4, modificado a partir de 25/11/2026: abre direto em https://cowme.net.br, nome e ícone CowMe (pasta [`cowme/`](cowme/)), Discord Rich Presence do CowMe e **sem atualização automática** (ela instalaria o Stoat oficial por cima). Servidor e client web: [17nekrotciv/cowme-server](https://github.com/17nekrotciv/cowme-server).
+>
+> Gerar o instalador no Windows (Node.js e pnpm 11.17.0):
+>
+> ```sh
+> git -c submodule.assets.update=checkout submodule update --init --depth 1 assets
+> pnpm install
+> pnpm exec electron-forge make --targets squirrel   # out/make/squirrel.windows/x64/cowme-desktop-setup.exe
+> ```
+>
+> Use `--targets squirrel`: com `@electron-forge/maker-squirrel` o Forge ignora a configuração e falha com "Description is required". O resto deste README é o original do Stoat.
+
 ## Installation
 
 <a href="https://repology.org/project/stoat-desktop/versions">
